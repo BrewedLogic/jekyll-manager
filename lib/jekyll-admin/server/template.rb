@@ -80,7 +80,6 @@ module JekyllAdmin
 
       def subdir_entries
         Dir["#{directory_path}/*"]
-          .reject { |e| File.directory?(e) }
           .reject { |f| site.static_files.map(&:path).include?(f) }
           .map! do |e|
           {
